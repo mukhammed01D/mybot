@@ -4,7 +4,8 @@ from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile
 import yt_dlp
-
+import static_ffmpeg
+static_ffmpeg.add_paths()
 # @BotFather'dan olingan tokeningizni shu yerga qo'ying
 BOT_TOKEN = "8895942423:AAFf8i-x51GUqrQlmBMcxxHHnDhSxoDfIBU"
 
