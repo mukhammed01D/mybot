@@ -104,7 +104,10 @@ async def process_download(call: types.CallbackQuery):
             await call.message.edit_text("❌ Faylni yuklab bo'lmadi. Havola to'g'riligini tekshiring.")
 
     except Exception as e:
-        await call.message.edit_text("❌ Xatolik yuz berdi: Fayl hajmi juda katta bo'lishi yoki havola yopiq profildan bo'lishi mumkin.")
+    if downloaded_file and os.path.exists(downloaded_file):
+        os.remove(downloaded_file)
+    await call.message.edit_text("❌ Xatolik yuz berdi: Fayl hajmi juda katta bo'lishi yoki havola yopiq profildan bo'lishi mumkin.")
+        
 
 def download_media(url, opts):
     with yt_dlp.YoutubeDL(opts) as ydl:
