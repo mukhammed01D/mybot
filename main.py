@@ -53,11 +53,29 @@ os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 @dp.message(CommandStart())
 async def start_cmd(message: types.Message):
+    save_user(message.from_user.id) 
     await message.answer(
         "Salom! Menga Instagram, YouTube, TikTok yoki boshqa ijtimoiy tarmoqdan video havolasini yuboring.\n\n"
         "Men sizga video yoki musiqasini yuklab beraman!"
     )
 
+    
+        
+        
+    
+@dp.message(Command("stat"))
+async def stat_cmd(message: Message):
+    try:
+        if os.path.exists("users.txt"):
+            with open("users.txt", "r") as f:
+                users = set(f.read().splitlines())
+            count = len(users)
+        else:
+            count = 0
+    except Exception:
+        count = 0
+
+    await message.answer(f"📊 **Bot statistikasi:**\n\nJami foydalanuvchilar soni: **{count}** ta")
 @dp.message(F.text.startswith("http://") | F.text.startswith("https://"))
 async def handle_url(message: types.Message):
     kb = InlineKeyboardMarkup(inline_keyboard=[
