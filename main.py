@@ -14,7 +14,18 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
     
         
+def save_user(user_id):
+    try:
+        users = set()
+        if os.path.exists("users.txt"):
+            with open("users.txt", "r") as f:
+                users = set(f.read().splitlines())
         
+        if str(user_id) not in users:
+            with open("users.txt", "a") as f:
+                f.write(f"{user_id}\n")
+    except Exception as e:
+        print(f"User saqlashda xatolik: {e}")        
         
 
 def run_dummy_server():
