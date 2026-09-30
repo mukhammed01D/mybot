@@ -1,4 +1,4 @@
-
+from aiogram.filters import CommandStart, Command
 import os
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
