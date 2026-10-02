@@ -100,12 +100,18 @@ async def process_download(call: types.CallbackQuery):
     file_path = os.path.join(DOWNLOAD_DIR, f"{call.from_user.id}_{call.message.message_id}")
     
     if download_type == "dl_video":
+        if download_type == "dl_video":
         ydl_opts = {
-            'format': 'best[ext=mp4]',
+            'format': 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
             'outtmpl': f'{file_path}.%(ext)s',
             'quiet': True,
-            'max_filesize': 50 * 1024 * 1024
+            'max_filesize': 50 * 1024 * 1024,
         }
+            
+            
+            
+            
+
     else:
         ydl_opts = {
             'format': 'bestaudio/best',
