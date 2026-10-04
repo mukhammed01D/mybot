@@ -43,7 +43,7 @@ import yt_dlp
 import static_ffmpeg
 static_ffmpeg.add_paths()
 # @BotFather'dan olingan tokeningizni shu yerga qo'ying
-BOT_TOKEN = 8895942423:AAENBqoaTpuyEjTfwh5z6lix-fbLuc1p5to
+BOT_TOKEN = "8895942423:AAENBqoaTpuyEjTfwh5z6lix-fbLuc1p5to"
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
